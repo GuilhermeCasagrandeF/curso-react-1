@@ -23,7 +23,9 @@ const Formulario = () => {
 
                 <CampoSelect itens={times} label="Time"/>
 
-                <Botao texto="Criar card"/>
+                <Botao texto="Criar card">
+                    Criar card
+                </Botao>
             </form>
         </section>
     );
