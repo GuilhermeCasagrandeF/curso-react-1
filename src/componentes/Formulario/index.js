@@ -2,6 +2,7 @@ import './Formulario.css';
 import CampoTexto from '../CampoTexto';
 import CampoSelect from '../CampoSelect';
 import Botao from '../Botao';
+import { useState } from 'react';
 
 const Formulario = () => {
     const times = [
@@ -14,20 +15,48 @@ const Formulario = () => {
         'Gestão e Inovação',
     ];
 
+    const [nome, setNome] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [time, setTime] = useState('');
+
     const aoSalvar = (event) =>{
         event.preventDefault();
-        console.log('Form enviado');
+        console.log('Form enviado', time);
     }
 
     return (
         <section className='formulario'>
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <CampoTexto label="Nome" placeholder="Digite seu nome" obrigatorio={true} />
-                <CampoTexto label="Cargo" placeholder="Digite seu cargo" obrigatorio={true} />
-                <CampoTexto label="Imagem" placeholder="Informe a url da imagem" />
+                <CampoTexto 
+                    label="Nome" 
+                    placeholder="Digite seu nome" 
+                    obrigatorio={true}
+                    valor={nome}
+                    aoAlterado={valor => setNome(valor)}
+                />
+                <CampoTexto 
+                    label="Cargo" 
+                    placeholder="Digite seu cargo" 
+                    obrigatorio={true}
+                    valor={cargo}
+                    aoAlterado={valor => setCargo(valor)}
+                />
+                <CampoTexto 
+                    label="Imagem" 
+                    placeholder="Informe a url da imagem" 
+                    valor={imagem}
+                    aoAlterado={valor => setImagem(valor)}
+                />
 
-                <CampoSelect itens={times} label="Time" obrigatorio={true}/>
+                <CampoSelect 
+                    itens={times} 
+                    label="Time" 
+                    obrigatorio={true}
+                    valor={time}
+                    aoAlterado={valor => setTime(valor)}
+                />
 
                 <Botao texto="Criar card">
                     Criar card
