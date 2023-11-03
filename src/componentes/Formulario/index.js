@@ -5,15 +5,6 @@ import Botao from '../Botao';
 import { useState } from 'react';
 
 const Formulario = (props) => {
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Gestão e Inovação',
-    ];
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
@@ -56,7 +47,7 @@ const Formulario = (props) => {
                 />
 
                 <CampoSelect 
-                    itens={times} 
+                    itens={props.times} 
                     label="Time" 
                     obrigatorio={true}
                     valor={time}
