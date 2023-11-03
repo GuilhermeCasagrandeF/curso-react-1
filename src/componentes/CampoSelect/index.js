@@ -10,7 +10,7 @@ const CampoSelect = (props) =>{
         <div className='campo-select'>
             <label htmlFor="">{props.label}</label>
             <select required={props.obrigatorio} value={props.valor} onChange={aoAlterar}>
-                <option disabled selected>Selecione</option>
+                <option defaultValue>Selecione</option>
                 { props.itens.map(item => <option key={item}>{item}</option>) }
             </select>
         </div>
